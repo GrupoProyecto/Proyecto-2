@@ -25,14 +25,13 @@ PreparedStatement stm;*/
         txtUsu = new javax.swing.JTextField();
         jLabel2 = new javax.swing.JLabel();
         txtContra = new javax.swing.JPasswordField();
-        jButton4 = new javax.swing.JButton();
-        jButton3 = new javax.swing.JButton();
         btnAceptar = new javax.swing.JButton();
         jButton5 = new javax.swing.JButton();
         jButton7 = new javax.swing.JButton();
         jLabel3 = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
+        setUndecorated(true);
         getContentPane().setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
         jLabel4.setFont(new java.awt.Font("Times New Roman", 0, 36)); // NOI18N
@@ -67,18 +66,6 @@ PreparedStatement stm;*/
             }
         });
         getContentPane().add(txtContra, new org.netbeans.lib.awtextra.AbsoluteConstraints(210, 170, 140, 29));
-
-        jButton4.setText("Registrar nuevo usuario");
-        jButton4.setBorderPainted(false);
-        jButton4.setContentAreaFilled(false);
-        jButton4.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
-        getContentPane().add(jButton4, new org.netbeans.lib.awtextra.AbsoluteConstraints(200, 210, -1, -1));
-
-        jButton3.setText("¿Olvido su contraseña?");
-        jButton3.setBorderPainted(false);
-        jButton3.setContentAreaFilled(false);
-        jButton3.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
-        getContentPane().add(jButton3, new org.netbeans.lib.awtextra.AbsoluteConstraints(200, 230, -1, -1));
 
         btnAceptar.setBackground(new java.awt.Color(102, 255, 204));
         btnAceptar.setFont(new java.awt.Font("Tahoma", 1, 14)); // NOI18N
@@ -120,7 +107,7 @@ PreparedStatement stm;*/
                 jButton7ActionPerformed(evt);
             }
         });
-        getContentPane().add(jButton7, new org.netbeans.lib.awtextra.AbsoluteConstraints(380, 10, -1, -1));
+        getContentPane().add(jButton7, new org.netbeans.lib.awtextra.AbsoluteConstraints(390, 10, -1, -1));
 
         jLabel3.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Imagenes/Textures-Texture-Bamboo-Fondos--1080x1920.jpg"))); // NOI18N
         jLabel3.addMouseListener(new java.awt.event.MouseAdapter() {
@@ -164,8 +151,17 @@ PreparedStatement stm;*/
             usu=txtUsu.getText();
             contra=txtContra.getText();
             Principal p=new Principal();
+            PrincipalC pc=new PrincipalC();
             if(usu.equals("admin") || contra.equals("admin")){
-            p.setVisible(rootPaneCheckingEnabled);}
+            p.setLocationRelativeTo(p);
+            p.setVisible(true);
+            dispose();
+            }
+            else if(usu.equals("cordi")||contra.equals("cordi")){
+                pc.setLocationRelativeTo(pc);
+                pc.setVisible(true);
+                dispose();
+            }
             else JOptionPane.showMessageDialog(null, "Usuario o contraseña incorrecta");
         }catch(Exception e){
         
@@ -219,8 +215,6 @@ PreparedStatement stm;*/
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton btnAceptar;
-    private javax.swing.JButton jButton3;
-    private javax.swing.JButton jButton4;
     private javax.swing.JButton jButton5;
     private javax.swing.JButton jButton7;
     private javax.swing.JLabel jLabel1;
@@ -230,4 +224,8 @@ PreparedStatement stm;*/
     public static javax.swing.JPasswordField txtContra;
     public static javax.swing.JTextField txtUsu;
     // End of variables declaration//GEN-END:variables
+
+    private void setLocationRelative() {
+        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+    }
 }
